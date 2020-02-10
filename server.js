@@ -29,7 +29,7 @@ app.use(express.static("public"));
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/wholesomeScrape2"
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://heroku_tj9nq0x5:iieh8pas0but7vg2m1l0ggf332@ds033429.mlab.com:33429/heroku_tj9nq0x5");
+mongoose.connect(MONGODB_URI);
 
 // Routes
 
