@@ -3,23 +3,42 @@
   <head>
     <meta charset="UTF-8">
     <title>Scraping With Mongoose</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <style>
-      body { background-color: whitesmoke }
+      body { background-image: url("cork.jpg") }
       #wrapper {
+        background-image: url("sun.jpg");
+        color: white;
+        
+        object-fit: cover;
         width: 960px;
         margin-left: auto;
         margin-right: auto;
         padding-top: 5%;
       }
       #articles {
+        position: absolute;
         display: inline-block;
         overflow: auto;
-        width: 60%;
-        height: 700px;
+        padding: 20px;
+        left: 22vw;
+        width: 56.5vw;
+        height: 800px;
+        background-image: url("image.jpg");
+        z-index:1;
+        border: 20px solid brown;
       }
       #notes {
-        float: right;
+        background-color: lightgoldenrodyellow;
+        position: relative;
+        left: 80%;
+        float: left;
         width: 30%;
+        z-index: 2; 
+      
       }
       textarea, input {
         display: block;
@@ -34,17 +53,43 @@
         height: 200px;
         font-size: 18px;
       }
-      h1, h2, p{
-        font-family:Arial, Helvetica, sans-serif
+      
+      .card{
+        position: relative;
+        float:left;
+        transition: transform .2s;
+        z-index: 1;
+        margin: 20px;
+        border: solid black 2px;
       }
+      .card:hover{
+        background-color: white;
+        transform: scale(1.2);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        z-index: 999; 
+      }
+
+      h1, h2 {
+        text-align: center;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-weight: bold;
+      }
+
+      h2{
+        color: lightsalmon;
+      }
+      
       
       
     </style>
   </head>
   <body>
-    <div id="wrapper">
+    <div class = "container">
+    <div class = "jumbotron" id="wrapper">
       <h1>Scrapped from Wholesomememes</h1>
       <h2><i>Scrapper for the soul</i></h2>
+    </div>
+    <div class = "row">
       <div id="articles"></div>
       <div id="notes"></div>
     </div>
