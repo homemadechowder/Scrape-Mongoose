@@ -26,7 +26,7 @@ app.use(express.json());
 // Make public a static folder
 app.use(express.static("public"));
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/wholesomeScrape2"
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/wholesomeScrape3"
 
 // Connect to the Mongo DB
 mongoose.connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true });
@@ -51,7 +51,7 @@ axios.get("https://old.reddit.com/r/wholesomememes/").then(function(response) {
     result.image = $(element).parent().parent().parent().find("a").children().attr("src");
     result.link = $(element).children().attr("href");
 
-    console.log(result.image);
+    console.log(result.link);
     // Create a new Article using the `result` object built from scraping
     db.Article.create(result)
       .then(function(dbArticle) {

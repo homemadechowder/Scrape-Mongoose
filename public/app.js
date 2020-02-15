@@ -6,7 +6,7 @@ $.getJSON("/articles", function(data) {
     var card = "<div class='card' style='width: 18rem;'>";
     var img = "<img class='card-img-top' src='"+data[i].image+"' alt= 'pic'>";
     var pSec = "<h1 data-id = '"+data[i]._id+"'>"+data[i].title+"</p>";
-    var aSec = "<a href='"+data[i].link+" type = 'button' class='btn btn-danger'>Go to image</a> </div></div><br><br>"
+    var aSec = "<a href='"+ data[i].link +"' type = 'button' class='btn btn-danger'>Go to image</a> </div></div><br><br>"
 
     
     
